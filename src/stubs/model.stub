@@ -1,0 +1,9 @@
+<?php
+
+namespace {{namespace}};
+
+use BomberNet\LaravelExtensions\Models\Model;
+
+class {{class}} extends Model
+	{
+	}

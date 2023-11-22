@@ -1,0 +1,30 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Http\JsonResponse;
+use BomberNet\LaravelExtensions\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{class}} extends Controller
+	{
+		public function index ():JsonResponse
+			{
+			}
+	
+		public function store (Request $request):JsonResponse
+			{
+			}
+	
+		public function show (int|string $id):JsonResponse
+			{
+			}
+	
+		public function update (Request $request,int|string $id):JsonResponse
+			{
+			}
+	
+		public function destroy (int|string $id):JsonResponse
+			{
+			}
+	}

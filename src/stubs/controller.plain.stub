@@ -1,0 +1,11 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Http\JsonResponse;
+use BomberNet\LaravelExtensions\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{class}} extends Controller
+	{
+	}
