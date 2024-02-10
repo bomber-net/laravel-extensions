@@ -11,10 +11,10 @@ if (!function_exists ('str_normalize'))
 			{
 				return match (strtolower ($str))
 					{
-					'null'=>null,
-					'true'=>true,
-					'false'=>false,
-					default=>is_numeric ($str)?(is_intnum ($str)?(int)$str:(float)$str):$str,
+						'null'=>null,
+						'true'=>true,
+						'false'=>false,
+						default=>is_numeric ($str)?(is_intnum ($str)?(int)$str:(float)$str):$str,
 					};
 			}
 	}
@@ -37,10 +37,10 @@ if (!function_exists ('sign'))
 			{
 				return match (true)
 					{
-					$number<0=>-1,
-					$number>0=>1,
-					$number===null=>null,
-					default=>0
+						$number<0=>-1,
+						$number>0=>1,
+						$number===null=>null,
+						default=>0
 					};
 			}
 	}
@@ -114,7 +114,9 @@ if (!function_exists ('method2logname'))
 		function method2logname (bool $withTime=true):string
 			{
 				$back=debug_backtrace (DEBUG_BACKTRACE_IGNORE_ARGS)[1];
-				return class_basename ($back['class']).'::'.$back['function'].($withTime?now ()->format (' Y-m-d H-i-s-u'):'');
+				$class=Arr::get ($back,'class');
+				$class=$class?class_basename ($class).'::':'';
+				return $class.$back['function'].($withTime?now ()->format (' Y-m-d H-i-s-u'):'');
 			}
 	}
 
