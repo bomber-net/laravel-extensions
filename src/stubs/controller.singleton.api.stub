@@ -1,0 +1,28 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Http\JsonResponse;
+use BomberNet\LaravelExtensions\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{class}} extends Controller
+	{
+		public function store (Request $request):never
+			{
+				abort(404);
+			}
+	
+		public function show ():JsonResponse
+			{
+			}
+	
+		public function update (Request $request):JsonResponse
+			{
+			}
+	
+		public function destroy ():never
+			{
+				abort(404);
+			}
+	}

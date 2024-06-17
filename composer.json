@@ -1,0 +1,38 @@
+{
+	"name":"bomber-net/laravel-extensions",
+	"description":"Extensions for Laravel framework",
+	"type":"library",
+	"license":"MIT",
+	"minimum-stability":"dev",
+	"version":"1.0.0",
+	"require":{
+		"php":">=8.2",
+		"laravel/framework":">=9.0",
+		"ext-json":"*",
+		"ext-dom":"*"
+	},
+	"autoload":{
+		"psr-4":{
+			"BomberNet\\LaravelExtensions\\":"src/"
+		},
+		"files":[
+			"src/helpers/helpers.php",
+			"src/helpers/vitehelpers.php",
+			"src/helpers/pathHelpers.php",
+			"src/helpers/constants.php",
+			"src/helpers/timeFormatHelpers.php"
+		]
+	},
+	"authors":[
+		{
+			"name":"bomber-net"
+		}
+	],
+	"extra":{
+		"laravel":{
+			"providers":[
+				"BomberNet\\LaravelExtensions\\Providers\\LaravelExtensionsServiceProvider"
+			]
+		}
+	}
+}

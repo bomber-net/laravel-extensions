@@ -1,0 +1,39 @@
+<?php
+
+namespace {{namespace}};
+
+use {{namespacedParentModel}};
+use {{namespacedModel}};
+use Illuminate\Http\JsonResponse;
+use BomberNet\LaravelExtensions\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{class}} extends Controller
+	{
+		public function create ({{parentModel}} ${{parentModelVariable}}):never
+			{
+				abort(404);
+			}
+	
+		public function store (Request $request,{{parentModel}} ${{parentModelVariable}}):never
+			{
+				abort(404);
+			}
+	
+		public function show ({{parentModel}} ${{parentModelVariable}}):JsonResponse
+			{
+			}
+	
+		public function edit ({{parentModel}} ${{parentModelVariable}}):JsonResponse
+			{
+			}
+	
+		public function update (Request $request,{{parentModel}} ${{parentModelVariable}}):JsonResponse
+			{
+			}
+	
+		public function destroy ({{parentModel}} ${{parentModelVariable}}):never
+			{
+				abort(404);
+			}
+	}
