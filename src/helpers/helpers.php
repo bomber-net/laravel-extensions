@@ -188,3 +188,10 @@ if (!function_exists ('xml2array'))
 				return $node;
 			}
 	}
+if (!function_exists ('socket_file'))
+	{
+		function socket_file (string $name):string
+			{
+				return run_path ("$name.sock");
+			}
+	}
