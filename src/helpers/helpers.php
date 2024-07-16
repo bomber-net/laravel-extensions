@@ -1,9 +1,9 @@
 <?php
 
 use BomberNet\LaravelExtensions\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
 use Psr\Log\LoggerInterface;
-use Illuminate\Support\Facades\Log;
 
 if (!function_exists ('str_normalize'))
 	{
@@ -11,14 +11,13 @@ if (!function_exists ('str_normalize'))
 			{
 				return match (strtolower ($str))
 					{
-						'null'=>null,
-						'true'=>true,
-						'false'=>false,
-						default=>is_numeric ($str)?(is_intnum ($str)?(int)$str:(float)$str):$str,
+					'null'=>null,
+					'true'=>true,
+					'false'=>false,
+					default=>is_numeric ($str)?(is_intnum ($str)?(int)$str:(float)$str):$str,
 					};
 			}
 	}
-
 if (!function_exists ('is_intnum'))
 	{
 		function is_intnum (mixed $value):bool
@@ -30,21 +29,19 @@ if (!function_exists ('is_intnum'))
 				return $int===$value;
 			}
 	}
-
 if (!function_exists ('sign'))
 	{
 		function sign (int|float|null $number):?int
 			{
 				return match (true)
 					{
-						$number<0=>-1,
-						$number>0=>1,
-						$number===null=>null,
-						default=>0
+					$number<0=>-1,
+					$number>0=>1,
+					$number===null=>null,
+					default=>0
 					};
 			}
 	}
-
 if (!function_exists ('hexbin'))
 	{
 		function hexbin (string $hex):?string
@@ -66,7 +63,6 @@ if (!function_exists ('hexbin'))
 				return $bin;
 			}
 	}
-
 if (!function_exists ('random_code'))
 	{
 		function random_code (string $chars,int $minLength,?int $maxLength=null):string
@@ -80,7 +76,6 @@ if (!function_exists ('random_code'))
 				return $code;
 			}
 	}
-
 if (!function_exists ('php_shortversion'))
 	{
 		function php_shortversion ():string
@@ -88,7 +83,6 @@ if (!function_exists ('php_shortversion'))
 				return PHP_MAJOR_VERSION.'.'.PHP_MINOR_VERSION;
 			}
 	}
-
 if (!function_exists ('php_version'))
 	{
 		function php_version ():string
@@ -96,7 +90,6 @@ if (!function_exists ('php_version'))
 				return php_shortversion ();
 			}
 	}
-
 if (!function_exists ('custom_log'))
 	{
 		function custom_log (string $name):LoggerInterface
@@ -108,7 +101,6 @@ if (!function_exists ('custom_log'))
 					]);
 			}
 	}
-
 if (!function_exists ('method2logname'))
 	{
 		function method2logname (bool $withTime=true):string
@@ -119,7 +111,6 @@ if (!function_exists ('method2logname'))
 				return $class.$back['function'].($withTime?now ()->format (' Y-m-d H-i-s-u'):'');
 			}
 	}
-
 if (!function_exists ('print_re'))
 	{
 		function print_re (mixed $var):string
@@ -127,7 +118,6 @@ if (!function_exists ('print_re'))
 				return print_r ($var,true);
 			}
 	}
-
 if (!function_exists ('routes_from_this'))
 	{
 		function routes_from_this (string|array $routes):void
@@ -136,7 +126,6 @@ if (!function_exists ('routes_from_this'))
 				foreach (Arr::wrap ($routes) as $route) Route::prefix ($route)->name ("$route.")->group ("$dir/$route.php");
 			}
 	}
-
 if (!function_exists ('between'))
 	{
 		function between (int|float|string|null $value,int|float|string|null $min,int|float|string|null $max,bool $strict=false):bool
@@ -144,7 +133,6 @@ if (!function_exists ('between'))
 				return $strict?($min<$value && $value<$max):($min<=$value && $value<=$max);
 			}
 	}
-
 if (!function_exists ('used_middleware'))
 	{
 		function used_middleware (string|array $middleware):bool
@@ -157,7 +145,6 @@ if (!function_exists ('used_middleware'))
 				return false;
 			}
 	}
-
 if (!function_exists ('xml2array'))
 	{
 		function xml2array (string|DOMNode $xml):array
@@ -193,5 +180,12 @@ if (!function_exists ('socket_file'))
 		function socket_file (string $name):string
 			{
 				return run_path ("$name.sock");
+			}
+	}
+if (!function_exists ('lock_file'))
+	{
+		function lock_file (string $name):string
+			{
+				return run_path ("$name.lock");
 			}
 	}
