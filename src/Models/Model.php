@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
  * @method static int upsert (array $values,array|string $uniqueBy,array|null $update=null)
  * @method static LazyCollection cursor ()
  * @method static Collection get (array $columns=['*'])
+ * @method static Builder scopes (array|string $scopes)
  * @method static Builder select (array|mixed $columns=['*'])
  * @method static Builder setQuery (Builder $query)
  * @method static Builder where (Closure|string|array|Expression $column,mixed $operator=null,mixed $value=null,string $boolean='and')
