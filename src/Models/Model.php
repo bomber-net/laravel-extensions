@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 
 /**
  * @method static static create (array $attributes=[])
+ * @method static static createOrFirst (array $attributes=[],array $values=[])
  * @method static Builder withoutGlobalScope(Scope|string $scope)
  * @method static Builder withoutGlobalScopes(?array $scopes=null)
  * @method static static|null first (array|string $columns=['*'])
