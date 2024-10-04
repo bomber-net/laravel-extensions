@@ -12,6 +12,7 @@ use Illuminate\Database\Query\Expression;
 use BomberNet\LaravelExtensions\Support\Arr;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Illuminate\Contracts\Database\Query\Expression as ExpressionContract;
 
 /**
  * @method static static create (array $attributes=[])
@@ -47,6 +48,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
  * @method static Builder whereDoesntHave (string $relation,?Closure $callback=null)
  * @method static Builder orWhereDoesntHave (string $relation,Closure $callback=null)
  * @method static Builder whereDay (string $column,string $operator,DateTimeInterface|string|int|null $value=null,string $boolean='and')
+ * @method static Builder join (ExpressionContract|string $table,Closure|ExpressionContract|string $first,string|null $operator=null,ExpressionContract|string|null $second=null,string $type='inner',bool $where=false)
  * @method int increment (string|Expression $column,float|int $amount=1,array $extra=[])
  * @method int decrement (string|Expression $column,float|int $amount=1,array $extra=[])
  * @method static Collection pluck (string|Expression $column,?string $key=null)
