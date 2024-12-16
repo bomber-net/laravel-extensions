@@ -1,6 +1,7 @@
+@props (['title'=>'','description'=>'','keywords'=>'','author'=>''])
 <head>
-	<title>{{$title??null}}</title>
-	<x-laravel-extensions::app.head.meta :description="$description??null" :keywords="$keywords??null" :author="$author??null">
+	<title>{{$title}}</title>
+	<x-laravel-extensions::app.head.meta :$description :$keywords :$author>
 		{{$meta??null}}
 	</x-laravel-extensions::app.head.meta>
 	<x-laravel-extensions::app.head.styles>
