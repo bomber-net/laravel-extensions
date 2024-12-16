@@ -1,3 +1,9 @@
 <?php
-$file=base_path ('vite.json');
-return file_exists ($file)?(json_decode (file_get_contents (base_path ('vite.json')),true)??[]):[];
+$assetsDir=env ('ASSETS_DIRECTORY','assets');
+return
+	[
+		'assetsDirectory'=>$assetsDir,
+		'bundleDirectory'=>env ('VITE_BUNDLE_DIRECTORY','bundle'),
+		'buildDirectory'=>"$assetsDir/".env ('VITE_BUNDLE_DIRECTORY','bundle'),
+		'baseDirector'=>env ('VITE_BASE_DIRECTORY',''),
+	];

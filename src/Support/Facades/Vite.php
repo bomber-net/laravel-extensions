@@ -1,6 +1,8 @@
 <?php
 
 namespace BomberNet\LaravelExtensions\Support\Facades;
+
+use BomberNet\LaravelExtensions\Support\Vite as Accessor;
 use Illuminate\Support\Facades\Vite as Facade;
 
 /**
@@ -8,8 +10,8 @@ use Illuminate\Support\Facades\Vite as Facade;
  */
 class Vite extends Facade
 	{
-		protected static function getFacadeAccessor ()
+		protected static function getFacadeAccessor ():string
 			{
-				return \BomberNet\LaravelExtensions\Support\Vite::class;
+				return Accessor::class;
 			}
 	}
