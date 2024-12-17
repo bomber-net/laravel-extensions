@@ -15,7 +15,7 @@ class LaravelExtensionsServiceProvider extends ServiceProvider
 		
 		public function boot ():void
 			{
-				Blade::componentNamespace ('BomberNet\\LaravelExtensions\\View\\Components\\App','laravel-extensions');
+				Blade::componentNamespace ('BomberNet\\LaravelExtensions\\View\\Components','laravel-extensions');
 				$this->app->registerDeferredProvider (ViteServiceProvider::class);
 //				$this->loadViewsFrom (dirname (__DIR__).'/resources/views','laravel-extensions');
 				$this->publish ();
