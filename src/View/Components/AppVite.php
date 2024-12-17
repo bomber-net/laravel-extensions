@@ -1,6 +1,6 @@
 <?php
 
-namespace BomberNet\LaravelExtensions\View\Components\App;
+namespace BomberNet\LaravelExtensions\View\Components;
 
 use Illuminate\View\Component;
 
