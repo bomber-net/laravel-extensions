@@ -2,6 +2,7 @@
 
 namespace BomberNet\LaravelExtensions\Providers;
 
+use BomberNet\LaravelExtensions\View\Components\App\App;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use function dirname;
@@ -14,7 +15,7 @@ class LaravelExtensionsServiceProvider extends ServiceProvider
 		
 		public function boot ():void
 			{
-				Blade::componentNamespace ('BomberNet\\LaravelExtensions\\View\\Components','laravel-extensions');
+				Blade::component (App::class,'app');
 				$this->app->registerDeferredProvider (ViteServiceProvider::class);
 //				$this->loadViewsFrom (dirname (__DIR__).'/resources/views','laravel-extensions');
 				$this->publish ();
