@@ -1,3 +1,0 @@
-<body {{$attributes}}>
-	{{$slot}}
-</body>
