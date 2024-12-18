@@ -33,14 +33,26 @@ trait EnumBaseTrait
 		public static function fromOrd (int $ord):self
 			{
 				$last=self::count ()-1;
+				if ($ord>=0 && $ord<=$last) return self::cases ()[$ord];
 				$family=(new ReflectionClass (__CLASS__))->isEnum ()?'enum':'class';
-				if ($ord<0 || $ord>$last) throw new ValueError ("Order value '$ord' is out of range order values (0-$last) for $family ".__CLASS__);
-				return self::cases ()[$ord];
+				throw new ValueError ("Order value '$ord' is out of range order values (0-$last) for $family ".__CLASS__);
 			}
 		
 		public static function tryFromOrd (int $ord):?static
 			{
 				return self::cases ()[$ord]??null;
+			}
+		
+		public static function fromName (string $name):self
+			{
+				if ($value=self::tryFromName ($name)) return $value;
+				$family=(new ReflectionClass (__CLASS__))->isEnum ()?'enum':'class';
+				throw new ValueError ("Name '$name' not in valid names for $family ".__CLASS__);
+			}
+		
+		public static function tryFromName (string $name):?self
+			{
+				return Arr::first (self::cases (),static fn (self $case) => $case->name===$name);
 			}
 		
 		public function mapCase (bool $valueAsKey=false):array
@@ -53,7 +65,7 @@ trait EnumBaseTrait
 				try
 					{
 						return $this->value?:$this->name;
-					}catch (Throwable $e)
+					} catch (Throwable $e)
 					{
 						return $this->name;
 					}
